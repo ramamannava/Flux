@@ -42,7 +42,7 @@ fluxctl list-workloads
 fluxctl identity
 
 
-https://github.com/marcel-dempers/docker-development-youtube-series/settings/keys/new
+https://github.com/ramamannava/Flux/settings/keys/new
 
 fluxctl sync
 

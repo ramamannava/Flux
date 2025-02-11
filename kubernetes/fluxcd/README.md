@@ -81,7 +81,7 @@ flux bootstrap github \
   --repository=docker-development-youtube-series \
   --path=kubernetes/fluxcd/repositories/infra-repo/clusters/dev-cluster \
   --personal \
-  --branch fluxcd-2022
+  --branch main
 
 flux check
 
@@ -230,7 +230,7 @@ flux bootstrap github \
   --path=kubernetes/fluxcd/repositories/infra-repo/clusters/dev-cluster \
   --components-extra=image-reflector-controller,image-automation-controller \
   --personal \
-  --branch fluxcd-2022
+  --branch main
 ```
 We need to create a image registry credential where we will push our image:
 
@@ -273,7 +273,7 @@ kubectl -n default apply -f kubernetes/fluxcd/repositories/infra-repo/apps/examp
 kubectl -n default apply -f kubernetes/fluxcd/repositories/infra-repo/apps/example-app-2/imageupdateautomation.yaml
 
 # we will also need to provide authentication for our git repo
-flux create secret git example-app-2-github --url https://github.com/marcel-dempers/docker-development-youtube-series --username '' --password '' --namespace default
+flux create secret git example-app-2-github --url https://github.com/ramamannava/Flux --username '' --password '' --namespace default
 ```
 
 There are a number of ways to authenticate with [GitRepositories](https://fluxcd.io/flux/components/source/gitrepositories/#secret-reference)

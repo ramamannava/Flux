@@ -1,0 +1,20 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-status-update-frequency: "4s"
+  - |
+    kind: KubeletConfiguration
+    serializeImagePulls: false
+    evictionHard:
+      memory.available: "200Mi"
+    systemReserved:
+      memory: "500Mi"
+networking:
+  disableDefaultCNI: false
+  podSubnet: "10.244.0.0/16"
